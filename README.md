@@ -26,7 +26,7 @@ brew bundle
 
 ```bash
 cd ~/work/dotfiles
-brew bundle dump --force --describe
+brew bundle dump --force --no-describe
 git add Brewfile
 git commit -m "update Brewfile"
 git push
@@ -37,7 +37,7 @@ git push
 | やりたいこと | コマンド |
 | --- | --- |
 | Brewfile の内容をインストールする | `brew bundle` |
-| 今の環境を Brewfile に書き出す | `brew bundle dump --force --describe` |
+| 今の環境を Brewfile に書き出す | `brew bundle dump --force --no-describe` |
 | インストール済みのパッケージを最新にする | `brew update && brew upgrade` |
 | Brewfile に無いものを確認する | `brew bundle cleanup` |
 | Brewfile に無いものを削除する | `brew bundle cleanup --force` |

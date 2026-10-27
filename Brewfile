@@ -1,15 +1,17 @@
-# Dependency manager for Cocoa projects
+tap "anomalyco/tap"
 brew "cocoapods"
-# Manage Flutter SDK versions per project
+brew "firebase-cli"
 brew "fvm"
-# Password manager that keeps all passwords secure behind one password
+brew "gh"
+brew "node"
+brew "openjdk@21", link: true
+brew "anomalyco/tap/opencode-v2", trusted: true
 cask "1password"
-# OpenAI's official ChatGPT desktop app
-cask "chatgpt"
-# Write, edit, and chat about your code with AI
-cask "cursor"
-# Voice and text chat software
+cask "1password-cli"
 cask "discord"
-# Keyboard customiser
+cask "google-chrome"
 cask "karabiner-elements"
-vscode "anysphere.remote-ssh"
+cask "opencode-desktop"
+cask "zed"
+
+npm "corepack"
