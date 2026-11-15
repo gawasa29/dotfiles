@@ -1,5 +1,6 @@
 tap "btwld/fvm"
 brew "gh"
 brew "btwld/fvm/fvm"
+brew "cocoapods"
 cask "1password-cli"
 cask "zed"
