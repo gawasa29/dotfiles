@@ -13,7 +13,7 @@
 | 2 | [Xcode](#2-xcode) | App Store |
 | 3 | [Google Chrome](#3-google-chrome) | 公式サイトからダウンロード |
 | 4 | [1Password](#4-1password) | 公式サイトからダウンロード |
-| 5 | [Claude Desktop](#5-claude-desktop) | 公式サイトからダウンロード。CLI は公式のインストーラー |
+| 5 | [Claude Desktop](#5-claude-desktop) | 公式サイトからダウンロード。CLI は公式ページの方法 |
 | 6 | [Homebrew](#6-homebrew) | 公式サイトのコマンド |
 | 7 | [このリポジトリと Brewfile](#7-このリポジトリと-brewfile) | `brew bundle` |
 | 8 | [入れたあとの設定](#8-入れたあとの設定) | コマンドとアプリの設定 |
@@ -76,21 +76,9 @@ Claude のデスクトップアプリです。Claude Code は、このアプリ�
 
 **Claude Code の CLI**
 
-ターミナルからも `claude` コマンドで Claude Code を使えるように、CLI も入れておきます。公式が推奨しているネイティブインストーラーを使います（自動で最新に更新されます）。
-
-```bash
-curl -fsSL https://claude.ai/install.sh | bash
-```
+ターミナルからも `claude` コマンドで Claude Code を使えるように、CLI も入れておきます。入れ方は変わることがあるので、公式ページで推奨されている方法で入れます。
 
 - [インストール方法（公式）](https://code.claude.com/docs/en/setup)
-
-インストールの最後に PATH の追加を案内されたら、そのとおりに実行します。入ったか確かめます。
-
-```bash
-claude --version
-```
-
-初めて `claude` を実行すると、ブラウザで Claude のアカウントにログインします。
 
 ### 6. Homebrew
 
