@@ -87,10 +87,27 @@ brew bundle
 
 ### 7. 入れたあとの設定
 
-**GitHub にログインする**
+**GitHub にログインし、Git の SSH 鍵を作る**
 
 ```bash
-gh auth login
+gh auth login --git-protocol ssh
+```
+
+- 画面の質問に答えると、ブラウザで GitHub にログインします。
+- SSH 鍵（`~/.ssh/id_ed25519`）がまだ無いので、新しく作って GitHub に登録するか聞かれます。作るを選びます。
+- これで、`git clone`・`git push` などが SSH でつながるようになります（[gh 公式の説明](https://cli.github.com/manual/gh_auth_login)）。
+
+このリポジトリは手順 6 で HTTPS で clone したので、SSH でつなぐように変えておきます。
+
+```bash
+cd ~/work/dotfiles
+git remote set-url origin git@github.com:gawasa29/dotfiles.git
+```
+
+つながるか確かめます。`Hi gawasa29!` と出れば大丈夫です。
+
+```bash
+ssh -T git@github.com
 ```
 
 **1Password CLI をアプリと連携する**
@@ -190,23 +207,8 @@ npm install -g @davidwells/op-stash
 
 ## Mac を初期化するとき
 
-macOS を入れ直さずに、買ったときの状態に戻せます（[Apple 公式の手順](https://support.apple.com/ja-jp/102664)）。
-macOS 本体はそのまま残り、アプリ、設定、書類などのデータだけが消えます。数分で終わります。
+macOS を入れ直さずに、買ったときの状態に戻せます。
 
-### 消す前に確かめること
-
-このリポジトリで戻せるのは、アプリとツールと Karabiner-Elements の設定だけです。次のものは自分で残しておきます。
-
-- `~/work` のプロジェクト: 各リポジトリで `git status` を見て、commit していない変更や push していない commit があれば push しておく
-- 書類、写真、デスクトップのファイル: iCloud Drive に同期されていないものは消える
-- 外付けのディスクがあれば、Time Machine でバックアップを取っておく
-
-### 消し方
-
-1. 「システム設定」>「一般」>「転送またはリセット」を開く
-2. 「すべてのコンテンツと設定を消去」を選ぶ
-3. Mac のパスワードを入れる
-4. Apple アカウントのパスワードを入れる。「探す」とアクティベーションロックもここで外れる
-5. 消去が終わると再起動し、初期設定の画面になる
+- [Mac を消去して工場出荷時の初期設定にリセットする（Apple 公式）](https://support.apple.com/ja-jp/102664)
 
 そのあとは、上の [新しい Mac のセットアップ](#新しい-mac-のセットアップ) を 1 から進めます。
