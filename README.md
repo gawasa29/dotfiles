@@ -10,14 +10,16 @@
 | # | やること | 入れ方 |
 | --- | --- | --- |
 | 1 | [Karabiner-Elements](#1-karabiner-elements) | 公式サイトからダウンロード |
-| 2 | [Google Chrome](#2-google-chrome) | 公式サイトからダウンロード |
-| 3 | [1Password](#3-1password) | 公式サイトからダウンロード |
-| 4 | [Xcode](#4-xcode) | App Store |
+| 2 | [Xcode](#2-xcode) | App Store |
+| 3 | [Google Chrome](#3-google-chrome) | 公式サイトからダウンロード |
+| 4 | [1Password](#4-1password) | 公式サイトからダウンロード |
 | 5 | [Homebrew](#5-homebrew) | 公式サイトのコマンド |
 | 6 | [このリポジトリと Brewfile](#6-このリポジトリと-brewfile) | `brew bundle` |
 | 7 | [入れたあとの設定](#7-入れたあとの設定) | コマンドとアプリの設定 |
-| 8 | [Claude Code](#8-claude-code) | 公式サイトのコマンド |
-| 9 | [Node.js](#9-nodejs) | 公式サイトからダウンロード |
+| 8 | [Claude Desktop](#8-claude-desktop) | 公式サイトからダウンロード |
+| 9 | [Muse](#9-muse) | 公式サイトからダウンロード |
+| 10 | [Node.js](#10-nodejs) | 公式サイトからダウンロード |
+| 11 | [op-stash](#11-op-stash) | `npm install -g` |
 
 ## このリポジトリのファイル
 
@@ -44,21 +46,21 @@
 
 キーの設定は、[7. 入れたあとの設定](#7-入れたあとの設定) で入れます。
 
-### 2. Google Chrome
-
-- [ダウンロード（公式）](https://www.google.com/chrome/)
-
-### 3. 1Password
-
-ほかのアプリのサインインに使うので、早めに入れます。
-
-- [ダウンロード（公式）](https://1password.com/downloads/mac)
-
-### 4. Xcode
+### 2. Xcode
 
 ダウンロードに時間がかかるので、早めに始めておきます。
 
 - [App Store](https://apps.apple.com/jp/app/xcode/id497799835)
+
+### 3. Google Chrome
+
+- [ダウンロード（公式）](https://www.google.com/chrome/)
+
+### 4. 1Password
+
+ほかのアプリのサインインに使うので、早めに入れます。
+
+- [ダウンロード（公式）](https://1password.com/downloads/mac)
 
 ### 5. Homebrew
 
@@ -108,13 +110,68 @@ cd ~/work/dotfiles
 - もとの設定は `~/.config/karabiner.backup-日時` に退避されます。
 - リンクしたあとは、Karabiner-Elements の画面で設定を変えると、このリポジトリの `karabiner/karabiner.json` が書き換わります。
 
-### 8. Claude Code
+**Flutter を使えるようにする（fvm）**
 
-- [インストール方法（公式）](https://code.claude.com/docs/en/setup)
+まず、[2. Xcode](#2-xcode) で入れた Xcode の初期設定をします（[Flutter 公式の手順](https://docs.flutter.dev/platform-integration/ios/setup)）。Xcode のダウンロードとインストールが終わってから実行します。
 
-### 9. Node.js
+1 行目でコマンドラインツールをこの Xcode に向けて初回起動の準備をし、2 行目でライセンスに同意し、3 行目で iOS のプラットフォームとシミュレータをダウンロードします。
+
+```bash
+sudo sh -c 'xcode-select -s /Applications/Xcode.app/Contents/Developer && xcodebuild -runFirstLaunch'
+sudo xcodebuild -license
+xcodebuild -downloadPlatform iOS
+```
+
+次に、fvm で Flutter の stable を入れ、ふだん使う Flutter にします（[fvm 公式の手順](https://fvm.app/documentation/guides/global-configuration)）。
+
+```bash
+fvm global stable
+```
+
+`flutter` コマンドを使えるように、`~/fvm/default/bin` を PATH に足します。
+
+```bash
+echo 'export PATH="$HOME/fvm/default/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+最後に、足りないものがないか確かめます。
+
+```bash
+flutter doctor
+```
+
+プロジェクトで使う Flutter のバージョンは、プロジェクトの `.fvmrc` に書いてあります。プロジェクトのフォルダで次を実行すると、そのバージョンが入ります。
+
+```bash
+fvm install
+```
+
+### 8. Claude Desktop
+
+Claude のデスクトップアプリです。Claude Code は、このアプリの「Code」タブで使えるので、別に入れる必要はありません。
+
+- [ダウンロード（公式）](https://claude.com/download)
+
+### 9. Muse
+
+Meta の AI エージェントのデスクトップアプリです。App Store ではなく、Meta の公式サイトからダウンロードします。
+
+- [ダウンロード（公式）](https://ai.meta.com/muse/download/)
+
+### 10. Node.js
 
 - [ダウンロード（公式）](https://nodejs.org/ja/download)
+
+### 11. op-stash
+
+1Password CLI で読んだ秘密を、しばらくメモリに覚えておくツールです。続けて読むたびに 1Password の確認が出るのを防ぎます。Node.js 22 以上と 1Password CLI が必要です。
+
+```bash
+npm install -g @davidwells/op-stash
+```
+
+- [README（公式）](https://github.com/DavidWells/configorama/tree/master/packages/op-stash#readme)
 
 ## Brewfile を変えるとき
 
