@@ -17,16 +17,17 @@
 - https://karabiner-elements.pqrs.org/docs/getting-started/installation/
 
 入れたあと、案内に従ってバックグラウンドでの実行、アクセシビリティ、入力監視、ドライバ機能拡張を許可します。
+キーの設定は、手順 6 でこのリポジトリを clone したあとに入れます。
 
-### 2. 1Password
+### 2. Google Chrome
+
+- https://www.google.com/chrome/
+
+### 3. 1Password
 
 ほかのアプリのサインインに使うので、早めに入れます。
 
 - https://1password.com/downloads/mac
-
-### 3. Google Chrome
-
-- https://www.google.com/chrome/
 
 ### 4. Xcode
 
@@ -64,6 +65,14 @@ gh auth login
 ```
 
 1Password CLI を使うには、1Password アプリの Settings > Developer で「Integrate with 1Password CLI」をオンにします（日本語表示では名前が違うことがあります）。
+
+Karabiner-Elements の設定（左 option で英数、右 option でかな）を、このリポジトリのものにします。
+
+```bash
+./setup-karabiner.sh
+```
+
+`~/.config/karabiner` が、このリポジトリの `karabiner` フォルダへのシンボリックリンクになります。もとの設定は `~/.config/karabiner.backup-日時` に退避されます。リンクしたあとは、Karabiner-Elements の画面で設定を変えると、このリポジトリの `karabiner/karabiner.json` が書き換わります。
 
 ### 7. Claude Code
 
