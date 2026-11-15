@@ -1,45 +1,87 @@
 # dotfiles
 
-Mac にインストールしているアプリ・ツールの一覧を `Brewfile` で管理しています。
+新しい Mac に入れるものと、その入れ方をまとめています。
+どれも、それぞれの公式サイトが案内している方法で入れます。
 
-## はじめに(Homebrew を入れる)
+- 公式が Homebrew での入れ方を案内しているもの → `Brewfile` にまとめて `brew bundle` で入れる
+- それ以外 → 下の手順にある公式ページのリンクから入れる
 
-Homebrew が入っていない場合は、先にインストールします。
+## 新しい Mac のセットアップ
+
+上から順に進めます。
+
+### 1. Karabiner-Elements
+
+日本語入力に必要なので、最初に入れます。
+
+- https://karabiner-elements.pqrs.org/docs/getting-started/installation/
+
+入れたあと、案内に従ってバックグラウンドでの実行、アクセシビリティ、入力監視、ドライバ機能拡張を許可します。
+
+### 2. 1Password
+
+ほかのアプリのサインインに使うので、早めに入れます。
+
+- https://1password.com/downloads/mac
+
+### 3. Google Chrome
+
+- https://www.google.com/chrome/
+
+### 4. Xcode
+
+ダウンロードに時間がかかるので、早めに始めておきます。
+
+- https://apps.apple.com/jp/app/xcode/id497799835
+
+### 5. Homebrew
+
+- https://brew.sh/ja/
+
+インストールの最後に表示される「Next steps」のコマンドも実行して、`brew` コマンドを使えるようにします。
+
+### 6. このリポジトリと Brewfile
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-## 新しい Mac にセットアップする
-
-```bash
-git clone git@github.com:gawasa29/dotfiles.git ~/work/dotfiles
+git clone https://github.com/gawasa29/dotfiles.git ~/work/dotfiles
 cd ~/work/dotfiles
 brew bundle
 ```
 
-`Brewfile` に書かれているものがまとめてインストールされます。
+`Brewfile` に書いてあるものが入ります。
 
-## Brewfile を更新する(アプリを追加・削除したあと)
+| 名前 | 用途 | 公式の案内 |
+| --- | --- | --- |
+| gh | GitHub の操作 | https://github.com/cli/cli/blob/trunk/docs/install_macos.md |
+| fvm | Flutter のバージョン管理 | https://fvm.app/documentation/getting-started/installation |
+| 1password-cli | ターミナルから 1Password を使う | https://developer.1password.com/docs/cli/get-started/ |
+| zed | エディタ | https://zed.dev/docs/installation |
 
-今の Mac に入っているものを `Brewfile` に書き出して、GitHub に push します。
+入れたあと、GitHub にログインします。
 
 ```bash
-cd ~/work/dotfiles
-brew bundle dump --force --no-describe
-git add Brewfile
-git commit -m "update Brewfile"
-git push
+gh auth login
 ```
 
-## よく使うコマンド
+1Password CLI を使うには、1Password アプリの Settings > Developer で「Integrate with 1Password CLI」をオンにします（日本語表示では名前が違うことがあります）。
+
+### 7. Claude Code
+
+- https://code.claude.com/docs/en/setup
+
+### 8. Node.js
+
+- https://nodejs.org/ja/download
+
+## Brewfile を変えるとき
+
+`Brewfile` は手で編集します。
+`brew bundle dump --force` を使うと、今の Mac に入っているものすべてで上書きされるので使いません。
 
 | やりたいこと | コマンド |
 | --- | --- |
 | Brewfile の内容をインストールする | `brew bundle` |
-| 今の環境を Brewfile に書き出す | `brew bundle dump --force --no-describe` |
-| インストール済みのパッケージを最新にする | `brew update && brew upgrade` |
-| Brewfile に無いものを確認する | `brew bundle cleanup` |
-| Brewfile に無いものを削除する | `brew bundle cleanup --force` |
+| Brewfile の内容が入っているか確かめる | `brew bundle check` |
+| インストール済みのものを最新にする | `brew update && brew upgrade` |
 
-※ すべて `~/work/dotfiles` ディレクトリで実行してください。
+※ すべて `~/work/dotfiles` で実行します。
