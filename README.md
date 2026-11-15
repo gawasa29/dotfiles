@@ -13,19 +13,20 @@
 | 2 | [Xcode](#2-xcode) | App Store |
 | 3 | [Google Chrome](#3-google-chrome) | 公式サイトからダウンロード |
 | 4 | [1Password](#4-1password) | 公式サイトからダウンロード |
-| 5 | [Homebrew](#5-homebrew) | 公式サイトのコマンド |
-| 6 | [このリポジトリと Brewfile](#6-このリポジトリと-brewfile) | `brew bundle` |
-| 7 | [入れたあとの設定](#7-入れたあとの設定) | コマンドとアプリの設定 |
-| 8 | [Claude Desktop](#8-claude-desktop) | 公式サイトからダウンロード |
-| 9 | [Muse](#9-muse) | 公式サイトからダウンロード |
-| 10 | [Node.js](#10-nodejs) | 公式サイトからダウンロード |
+| 5 | [Claude Desktop](#5-claude-desktop) | 公式サイトからダウンロード |
+| 6 | [Homebrew](#6-homebrew) | 公式サイトのコマンド |
+| 7 | [このリポジトリと Brewfile](#7-このリポジトリと-brewfile) | `brew bundle` |
+| 8 | [入れたあとの設定](#8-入れたあとの設定) | コマンドとアプリの設定 |
+| 9 | [Node.js](#9-nodejs) | 公式サイトからダウンロード |
+| 10 | [Muse](#10-muse) | 公式サイトからダウンロード |
 | 11 | [op-stash](#11-op-stash) | `npm install -g` |
+| 12 | [Obsidian](#12-obsidian) | 公式サイトからダウンロード |
 
 ## このリポジトリのファイル
 
 | ファイル | 中身 |
 | --- | --- |
-| `Brewfile` | Homebrew で入れるもの。公式が Homebrew での入れ方を案内しているものだけを書く |
+| `Brewfile` | Homebrew で入れるもの。公式が Homebrew での入れ方を案内しているものだけを書く（例外は cocoapods） |
 
 ## 新しい Mac のセットアップ
 
@@ -33,7 +34,7 @@
 
 日本語入力に必要なので、最初に入れます。
 
-- [インストール方法（公式）](https://karabiner-elements.pqrs.org/docs/getting-started/installation/)
+- [ダウンロード（公式）](https://karabiner-elements.pqrs.org/)
 
 入れたあと、画面の案内に従って次の 4 つを許可します。
 
@@ -67,13 +68,19 @@
 
 - [ダウンロード（公式）](https://1password.com/downloads/mac)
 
-### 5. Homebrew
+### 5. Claude Desktop
+
+Claude のデスクトップアプリです。Claude Code は、このアプリの「Code」タブで使えるので、別に入れる必要はありません。
+
+- [ダウンロード（公式）](https://claude.com/download)
+
+### 6. Homebrew
 
 - [インストール方法（公式）](https://brew.sh/ja/)
 
 インストールの最後に表示される「Next steps」のコマンドも実行して、`brew` コマンドを使えるようにします。
 
-### 6. このリポジトリと Brewfile
+### 7. このリポジトリと Brewfile
 
 ```bash
 git clone https://github.com/gawasa29/dotfiles.git ~/work/dotfiles
@@ -87,10 +94,11 @@ brew bundle
 | --- | --- | --- |
 | gh | GitHub の操作 | [リンク](https://github.com/cli/cli/blob/trunk/docs/install_macos.md) |
 | fvm | Flutter のバージョン管理 | [リンク](https://fvm.app/documentation/getting-started/installation) |
+| cocoapods | iOS アプリのビルド（Flutter で使う） | [リンク](https://formulae.brew.sh/formula/cocoapods)（公式は `gem install` を案内。Homebrew のほうが入れやすいので例外として Brewfile に書く） |
 | 1password-cli | ターミナルから 1Password を使う | [リンク](https://developer.1password.com/docs/cli/get-started/) |
 | zed | エディタ | [リンク](https://zed.dev/docs/installation) |
 
-### 7. 入れたあとの設定
+### 8. 入れたあとの設定
 
 **GitHub にログインし、Git の SSH 鍵を作る**
 
@@ -102,7 +110,7 @@ gh auth login --git-protocol ssh
 - SSH 鍵（`~/.ssh/id_ed25519`）がまだ無いので、新しく作って GitHub に登録するか聞かれます。作るを選びます。
 - これで、`git clone`・`git push` などが SSH でつながるようになります（[gh 公式の説明](https://cli.github.com/manual/gh_auth_login)）。
 
-このリポジトリは手順 6 で HTTPS で clone したので、SSH でつなぐように変えておきます。
+このリポジトリは手順 7 で HTTPS で clone したので、SSH でつなぐように変えておきます。
 
 ```bash
 cd ~/work/dotfiles
@@ -156,21 +164,15 @@ flutter doctor
 fvm install
 ```
 
-### 8. Claude Desktop
+### 9. Node.js
 
-Claude のデスクトップアプリです。Claude Code は、このアプリの「Code」タブで使えるので、別に入れる必要はありません。
+- [ダウンロード（公式）](https://nodejs.org/ja/download)
 
-- [ダウンロード（公式）](https://claude.com/download)
-
-### 9. Muse
+### 10. Muse
 
 Meta の AI エージェントのデスクトップアプリです。App Store ではなく、Meta の公式サイトからダウンロードします。
 
 - [ダウンロード（公式）](https://ai.meta.com/muse/download/)
-
-### 10. Node.js
-
-- [ダウンロード（公式）](https://nodejs.org/ja/download)
 
 ### 11. op-stash
 
@@ -181,6 +183,12 @@ npm install -g @davidwells/op-stash
 ```
 
 - [README（公式）](https://github.com/DavidWells/configorama/tree/master/packages/op-stash#readme)
+
+### 12. Obsidian
+
+メモアプリです。
+
+- [ダウンロード（公式）](https://obsidian.md/download)
 
 ## Brewfile を変えるとき
 
