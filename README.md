@@ -85,8 +85,11 @@ Claude のデスクトップアプリです。Claude Code は、このアプリ�
 ```bash
 git clone https://github.com/gawasa29/dotfiles.git ~/work/dotfiles
 cd ~/work/dotfiles
+brew trust btwld/fvm
 brew bundle
 ```
+
+`brew trust btwld/fvm` は fvm の tap を信頼済みにするコマンドです。これを先に実行しないと、`brew bundle` が `Refusing to load formula btwld/fvm/fvm from untrusted tap btwld/fvm.` で止まります。
 
 `Brewfile` に書いてある次のものが入ります。
 
