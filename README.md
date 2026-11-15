@@ -26,8 +26,6 @@
 | ファイル | 中身 |
 | --- | --- |
 | `Brewfile` | Homebrew で入れるもの。公式が Homebrew での入れ方を案内しているものだけを書く |
-| `karabiner/karabiner.json` | Karabiner-Elements のキーの設定 |
-| `setup-karabiner.sh` | Karabiner-Elements の設定を、このリポジトリのものにするスクリプト |
 
 ## 新しい Mac のセットアップ
 
@@ -44,7 +42,14 @@
 - 入力監視
 - ドライバ機能拡張
 
-キーの設定は、[7. 入れたあとの設定](#7-入れたあとの設定) で入れます。
+最初にキーボードの種類を聞かれたら、ANSI を選びます。
+
+続けて、左 option で英数、右 option でかなに切り替わるようにします。Karabiner-Elements の設定画面で「Simple Modifications」を開き、「For all devices」を選んだまま「Add item」で次の 2 つを足します。
+
+| 左（変える前のキー） | 右（変えたあとのキー） |
+| --- | --- |
+| `left_option` | ABC キー（英数キー） |
+| `right_option` | あいうキー（かなキー） |
 
 ### 2. Xcode
 
@@ -113,19 +118,6 @@ ssh -T git@github.com
 **1Password CLI をアプリと連携する**
 
 1Password アプリの Settings > Developer で「Integrate with 1Password CLI」をオンにします。日本語表示では名前が違うことがあります。
-
-**Karabiner-Elements のキーの設定を入れる**
-
-左 option で英数、右 option でかなに切り替わるようにします。
-
-```bash
-cd ~/work/dotfiles
-./setup-karabiner.sh
-```
-
-- `~/.config/karabiner` が、このリポジトリの `karabiner` フォルダへのシンボリックリンクになります。
-- もとの設定は `~/.config/karabiner.backup-日時` に退避されます。
-- リンクしたあとは、Karabiner-Elements の画面で設定を変えると、このリポジトリの `karabiner/karabiner.json` が書き換わります。
 
 **Flutter を使えるようにする（fvm）**
 
