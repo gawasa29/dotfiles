@@ -93,10 +93,11 @@ Claude のデスクトップアプリです。Claude Code は、このアプリ�
 git clone https://github.com/gawasa29/dotfiles.git ~/work/dotfiles
 cd ~/work/dotfiles
 brew trust btwld/fvm
+brew trust mobai-app/tap
 brew bundle
 ```
 
-`brew trust btwld/fvm` は fvm の tap を信頼済みにするコマンドです。これを先に実行しないと、`brew bundle` が `Refusing to load formula btwld/fvm/fvm from untrusted tap btwld/fvm.` で止まります。
+`brew trust` は tap を信頼済みにするコマンドです（`btwld/fvm` は fvm、`mobai-app/tap` は simslim の tap）。これを先に実行しないと、`brew bundle` が `Refusing to load formula btwld/fvm/fvm from untrusted tap btwld/fvm.` のように止まります。
 
 `Brewfile` に書いてある次のものが入ります。
 
@@ -105,6 +106,7 @@ brew bundle
 | gh | GitHub の操作 | [リンク](https://github.com/cli/cli/blob/trunk/docs/install_macos.md) |
 | fvm | Flutter のバージョン管理 | [リンク](https://fvm.app/documentation/getting-started/installation) |
 | cocoapods | iOS アプリのビルド（Flutter で使う） | [リンク](https://formulae.brew.sh/formula/cocoapods)（公式は `gem install` を案内。Homebrew のほうが入れやすいので例外として Brewfile に書く） |
+| simslim | iOS シミュレータの裏で動く不要なプロセスを止めて軽くする | [リンク](https://github.com/mobai-app/simslim) |
 | 1password-cli | ターミナルから 1Password を使う | [リンク](https://developer.1password.com/docs/cli/get-started/) |
 | zed | エディタ | [リンク](https://zed.dev/docs/installation) |
 

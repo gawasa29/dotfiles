@@ -1,6 +1,8 @@
 tap "btwld/fvm"
+tap "mobai-app/tap"
 brew "gh"
 brew "btwld/fvm/fvm"
 brew "cocoapods"
+brew "mobai-app/tap/simslim"
 cask "1password-cli"
 cask "zed"
