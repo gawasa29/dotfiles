@@ -20,7 +20,8 @@
 | 9 | [Node.js](#9-nodejs) | 公式サイトからダウンロード |
 | 10 | [Muse](#10-muse) | 公式サイトからダウンロード |
 | 11 | [op-stash](#11-op-stash) | `npm install -g` |
-| 12 | [Obsidian](#12-obsidian) | 公式サイトからダウンロード |
+| 12 | [pnpm](#12-pnpm) | `npm install -g` |
+| 13 | [Obsidian](#13-obsidian) | 公式サイトからダウンロード |
 
 ## このリポジトリのファイル
 
@@ -92,10 +93,11 @@ Claude のデスクトップアプリです。Claude Code は、このアプリ�
 git clone https://github.com/gawasa29/dotfiles.git ~/work/dotfiles
 cd ~/work/dotfiles
 brew trust btwld/fvm
+brew trust mobai-app/tap
 brew bundle
 ```
 
-`brew trust btwld/fvm` は fvm の tap を信頼済みにするコマンドです。これを先に実行しないと、`brew bundle` が `Refusing to load formula btwld/fvm/fvm from untrusted tap btwld/fvm.` で止まります。
+`brew trust` は tap を信頼済みにするコマンドです（`btwld/fvm` は fvm、`mobai-app/tap` は simslim の tap）。これを先に実行しないと、`brew bundle` が `Refusing to load formula btwld/fvm/fvm from untrusted tap btwld/fvm.` のように止まります。
 
 `Brewfile` に書いてある次のものが入ります。
 
@@ -104,6 +106,7 @@ brew bundle
 | gh | GitHub の操作 | [リンク](https://github.com/cli/cli/blob/trunk/docs/install_macos.md) |
 | fvm | Flutter のバージョン管理 | [リンク](https://fvm.app/documentation/getting-started/installation) |
 | cocoapods | iOS アプリのビルド（Flutter で使う） | [リンク](https://formulae.brew.sh/formula/cocoapods)（公式は `gem install` を案内。Homebrew のほうが入れやすいので例外として Brewfile に書く） |
+| simslim | iOS シミュレータの裏で動く不要なプロセスを止めて軽くする | [リンク](https://github.com/mobai-app/simslim) |
 | 1password-cli | ターミナルから 1Password を使う | [リンク](https://developer.1password.com/docs/cli/get-started/) |
 | zed | エディタ | [リンク](https://zed.dev/docs/installation) |
 
@@ -193,7 +196,19 @@ npm install -g @davidwells/op-stash
 
 - [README（公式）](https://github.com/DavidWells/configorama/tree/master/packages/op-stash#readme)
 
-### 12. Obsidian
+### 12. pnpm
+
+npm の代わりに使うパッケージマネージャーです。DeepSeek Harness（dsh）の Web UI でプラグインを入れるときに使われます。
+
+```bash
+npm install -g pnpm
+```
+
+`install scripts blocked` という警告が出ますが、そのままで動きます。
+
+- [インストール方法（公式）](https://pnpm.io/installation)
+
+### 13. Obsidian
 
 メモアプリです。
 
