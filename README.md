@@ -20,7 +20,8 @@
 | 9 | [Node.js](#9-nodejs) | 公式サイトからダウンロード |
 | 10 | [Muse](#10-muse) | 公式サイトからダウンロード |
 | 11 | [op-stash](#11-op-stash) | `npm install -g` |
-| 12 | [Obsidian](#12-obsidian) | 公式サイトからダウンロード |
+| 12 | [pnpm](#12-pnpm) | `npm install -g` |
+| 13 | [Obsidian](#13-obsidian) | 公式サイトからダウンロード |
 
 ## このリポジトリのファイル
 
@@ -193,7 +194,19 @@ npm install -g @davidwells/op-stash
 
 - [README（公式）](https://github.com/DavidWells/configorama/tree/master/packages/op-stash#readme)
 
-### 12. Obsidian
+### 12. pnpm
+
+npm の代わりに使うパッケージマネージャーです。DeepSeek Harness（dsh）の Web UI でプラグインを入れるときに使われます。
+
+```bash
+npm install -g pnpm
+```
+
+`install scripts blocked` という警告が出ますが、そのままで動きます。
+
+- [インストール方法（公式）](https://pnpm.io/installation)
+
+### 13. Obsidian
 
 メモアプリです。
 
