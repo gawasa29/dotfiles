@@ -20,7 +20,7 @@
 | 9 | [Node.js](#9-nodejs) | 公式サイトからダウンロード |
 | 10 | [Muse](#10-muse) | 公式サイトからダウンロード |
 | 11 | [op-stash](#11-op-stash) | `npm install -g` |
-| 12 | [pnpm](#12-pnpm) | `npm install -g` |
+| 12 | [pnpm](#12-pnpm) | `npm install -g --allow-scripts=pnpm` |
 | 13 | [Obsidian](#13-obsidian) | 公式サイトからダウンロード |
 
 ## このリポジトリのファイル
@@ -201,10 +201,10 @@ npm install -g @davidwells/op-stash
 npm の代わりに使うパッケージマネージャーです。DeepSeek Harness（dsh）の Web UI でプラグインを入れるときに使われます。
 
 ```bash
-npm install -g pnpm
+npm install -g --allow-scripts=pnpm pnpm
 ```
 
-`install scripts blocked` という警告が出ますが、そのままで動きます。
+`--allow-scripts=pnpm` を付けます。付けないと pnpm のインストール時のスクリプトが止められ（`install scripts blocked` の警告が出ます）、`pnpm` が仮のファイルのまま残ります。ターミナルからは動きますが、dsh のようにほかのアプリから起動すると `ENOEXEC` で失敗します。
 
 - [インストール方法（公式）](https://pnpm.io/installation)
 
