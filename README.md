@@ -108,6 +108,7 @@ brew bundle
 | fvm | Flutter のバージョン管理 | [リンク](https://fvm.app/documentation/getting-started/installation) |
 | cocoapods | iOS アプリのビルド（Flutter で使う） | [リンク](https://formulae.brew.sh/formula/cocoapods)（公式は `gem install` を案内。Homebrew のほうが入れやすいので例外として Brewfile に書く） |
 | simslim | iOS シミュレータの裏で動く不要なプロセスを止めて軽くする | [リンク](https://github.com/mobai-app/simslim) |
+| uv | Python とそのパッケージの管理 | [リンク](https://docs.astral.sh/uv/getting-started/installation/) |
 | 1password-cli | ターミナルから 1Password を使う | [リンク](https://developer.1password.com/docs/cli/get-started/) |
 | zed | エディタ | [リンク](https://zed.dev/docs/installation) |
 
@@ -185,6 +186,25 @@ flutter doctor
 ```bash
 fvm install
 ```
+
+**Python を入れる（uv）**
+
+最初から入っている `python3` は Xcode に付いてくる古い Python（3.9）なので、uv で新しい Python を入れ、ふだん使う Python にします（[uv 公式の手順](https://docs.astral.sh/uv/guides/install-python/)）。
+
+```bash
+uv python install --default
+```
+
+`python` と `python3` が `~/.local/bin` に置かれます。`--default` はまだ試験中の機能なので、実行すると `experimental` の警告が出ますが、そのまま使えます。
+
+`~/.local/bin` が PATH に入っていなければ、次で `~/.zshrc` に足します。入っていれば `already in PATH` と出て、何も変わりません。
+
+```bash
+uv python update-shell
+source ~/.zshrc
+```
+
+新しいターミナルで `python3 --version` を実行し、uv で入れたバージョンが出れば大丈夫です。
 
 ### 9. Node.js
 
