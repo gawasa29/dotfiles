@@ -136,6 +136,15 @@ git remote set-url origin git@github.com:gawasa29/dotfiles.git
 ssh -T git@github.com
 ```
 
+**Git の名前とメールを設定する**
+
+コミットに記録される名前とメールです。メールは GitHub の noreply アドレスにして、本物のアドレスを公開しないようにします（[GitHub 公式の説明](https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)）。
+
+```bash
+git config --global user.name "gawasa"
+git config --global user.email "61944230+gawasa29@users.noreply.github.com"
+```
+
 **1Password CLI をアプリと連携する**
 
 1Password アプリの Settings > Developer で「Integrate with 1Password CLI」をオンにします。日本語表示では名前が違うことがあります。
