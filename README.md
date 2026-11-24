@@ -22,6 +22,7 @@
 | 11 | [op-stash](#11-op-stash) | `npm install -g` |
 | 12 | [pnpm](#12-pnpm) | `npm install -g --allow-scripts=pnpm` |
 | 13 | [Obsidian](#13-obsidian) | 公式サイトからダウンロード |
+| 14 | [Asana](#14-asana) | 公式サイトからダウンロード |
 
 ## このリポジトリのファイル
 
@@ -213,6 +214,12 @@ npm install -g --allow-scripts=pnpm pnpm
 メモアプリです。
 
 - [ダウンロード（公式）](https://obsidian.md/download)
+
+### 14. Asana
+
+タスクとプロジェクトの管理アプリです。
+
+- [ダウンロード（公式）](https://asana.com/download)
 
 ## Brewfile を変えるとき
 
