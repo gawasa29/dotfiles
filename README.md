@@ -21,8 +21,6 @@
 | 10 | [Muse](#10-muse) | 公式サイトからダウンロード |
 | 11 | [op-stash](#11-op-stash) | `npm install -g` |
 | 12 | [pnpm](#12-pnpm) | `npm install -g --allow-scripts=pnpm` |
-| 13 | [Obsidian](#13-obsidian) | 公式サイトからダウンロード |
-| 14 | [Asana](#14-asana) | 公式サイトからダウンロード |
 
 ## このリポジトリのファイル
 
@@ -237,18 +235,6 @@ npm install -g --allow-scripts=pnpm pnpm
 `--allow-scripts=pnpm` を付けます。付けないと pnpm のインストール時のスクリプトが止められ（`install scripts blocked` の警告が出ます）、`pnpm` が仮のファイルのまま残ります。ターミナルからは動きますが、dsh のようにほかのアプリから起動すると `ENOEXEC` で失敗します。
 
 - [インストール方法（公式）](https://pnpm.io/installation)
-
-### 13. Obsidian
-
-メモアプリです。
-
-- [ダウンロード（公式）](https://obsidian.md/download)
-
-### 14. Asana
-
-タスクとプロジェクトの管理アプリです。
-
-- [ダウンロード（公式）](https://asana.com/download)
 
 ## Brewfile を変えるとき
 
